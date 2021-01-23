@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
+
+
     Rigidbody rb;
     AudioSource audioSource;
     [SerializeField] float thrustValue = 100f;
@@ -16,6 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField] ParticleSystem thrustParticle;
     [SerializeField] ParticleSystem successParticle;
     [SerializeField] ParticleSystem deathParticle;
+
     enum State { Alive, Transcending, Dying };
     State state = State.Alive;
 
@@ -70,8 +73,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))  //Thrust while rotating
         {
-            ApplyThrust(thrustMultiplier);
-            thrustParticle.Play();
+            ApplyThrust(thrustMultiplier);            
         }
         else
         {
@@ -107,6 +109,11 @@ public class Player : MonoBehaviour
         {
             audioSource.PlayOneShot(thrustSound, 0.6f);
         }
+        if(!thrustParticle.isPlaying)
+        {
+            thrustParticle.Play();
+        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -160,6 +167,7 @@ public class Player : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
+
 
 
 }
