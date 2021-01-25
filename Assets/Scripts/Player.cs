@@ -3,10 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
+using Cinemachine;
 
 public class Player : MonoBehaviour
 {
 
+    
 
     Rigidbody rb;
     AudioSource audioSource;
@@ -17,7 +20,8 @@ public class Player : MonoBehaviour
     [SerializeField] AudioClip winSound;
     [SerializeField] ParticleSystem thrustParticle;
     [SerializeField] ParticleSystem successParticle;
-    [SerializeField] ParticleSystem deathParticle;
+    [SerializeField] CinemachineVirtualCamera cinemachineVirtualCamera;
+    
 
     enum State { Alive, Transcending, Dying };
     State state = State.Alive;
@@ -29,13 +33,14 @@ public class Player : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();                       
     }
 
     // Update is called once per frame
     void Update()
     {
         ProcessInput();
+        print(tag);
 
         if(Debug.isDebugBuild)
         {
@@ -107,7 +112,7 @@ public class Player : MonoBehaviour
 
         if (!audioSource.isPlaying)
         {
-            audioSource.PlayOneShot(thrustSound, 0.6f);
+            audioSource.PlayOneShot(thrustSound, 0.5f);
         }
         if(!thrustParticle.isPlaying)
         {
@@ -118,7 +123,6 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
         if(state != State.Alive || areCollisionsDisabled)
         {            
             return ;
@@ -151,10 +155,29 @@ public class Player : MonoBehaviour
     private void StartDeathSequence()
     {
         state = State.Dying;
+        tag = "NoPlayer";
+        ProcessCamera();
         audioSource.Stop();
-        audioSource.PlayOneShot(deathSound);
-        deathParticle.Play();
-        Invoke("LoadFirstScene", 1f);
+        thrustParticle.Stop();
+        audioSource.PlayOneShot(deathSound, .6f);
+        
+        Disassemble();
+        Invoke("LoadFirstScene", 2f);
+    }
+
+    private void ProcessCamera()
+    {
+        //GetComponent<CinemachineImpulseSource>().GenerateImpulse();
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+    }
+
+    private void Disassemble()
+    {
+        foreach(Transform child in this.transform)
+        {
+            Rigidbody crb =  child.gameObject.AddComponent<Rigidbody>();
+            crb.useGravity = false;                                  
+        }
     }
 
     private void LoadFirstScene()
@@ -167,7 +190,5 @@ public class Player : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
-
-
 
 }
