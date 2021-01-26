@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class PlanetRotator : MonoBehaviour
+public class Rotator : MonoBehaviour
 {
 
     [SerializeField] Vector3 angle;

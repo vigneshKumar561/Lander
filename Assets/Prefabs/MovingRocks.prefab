@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -4239527792954421114}
   m_Layer: 0
   m_Name: MovingRocks
-  m_TagString: Friendly
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +97,8 @@ MonoBehaviour:
   movementVector: {x: 0, y: 0, z: 0}
   loopType: 0
   easetype: 0
+  duration: 1
+  twist: 0
 --- !u!64 &-6051940939992331996
 MeshCollider:
   m_ObjectHideFlags: 0
