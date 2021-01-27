@@ -29,10 +29,17 @@ public class Oscillator : MonoBehaviour
         
     }
 
-    public void EndTrigger()
+    public void EndTrigger(bool right = true)
     {
-        
+        if(right == true)
+        {
             transform.DOLocalMove(movementVector, duration, false).SetEase(easetype).SetRelative();
-        
+        }
+
+        else
+        {
+            transform.DOLocalMove(-movementVector, duration, false).SetEase(easetype).SetRelative();
+        }
+                
     }
 }

@@ -33,12 +33,29 @@ MonoBehaviour:
   - gameObject: {fileID: 5802970521307130917, guid: 067058eebfdf74d429d3afe4f023a7de,
       type: 3}
     settings:
-      m_Strength: 44.487858
-      m_RotationRangeMin: {x: 0, y: 22.8169, z: 0}
-      m_RotationRangeMax: {x: 32.95775, y: 40.563377, z: 25.352114}
+      m_Strength: 40
+      m_RotationRangeMin: {x: 63.380283, y: 30.422539, z: 45.633804}
+      m_RotationRangeMax: {x: 250.98593, y: 169.85919, z: 223.0986}
+      m_ScaleRangeMin: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMax: {x: 3.521127, y: 5.1408453, z: 3.0985913}
+      m_UniformScale: {x: 0.5, y: 1.3846154}
+      m_UniformBool: 0
+      m_XRotationBool: 0
+      m_YRotationBool: 0
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: Debris
+  - gameObject: {fileID: 5635505861449871860, guid: 532288d65aa4a2d47a6f26a3a50d4428,
+      type: 3}
+    settings:
+      m_Strength: 50
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
       m_ScaleRangeMax: {x: 1, y: 1, z: 1}
-      m_UniformScale: {x: 0.5, y: 1}
+      m_UniformScale: {x: 1, y: 1}
       m_UniformBool: 1
       m_XRotationBool: 1
       m_YRotationBool: 1
@@ -46,4 +63,4 @@ MonoBehaviour:
       m_XScaleBool: 0
       m_YScaleBool: 0
       m_ZScaleBool: 0
-    name: Debris
+    name: MovingRocks
