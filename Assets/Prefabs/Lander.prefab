@@ -133,10 +133,9 @@ GameObject:
   - component: {fileID: 687830074}
   - component: {fileID: 1522945569}
   - component: {fileID: 1522945568}
-  - component: {fileID: 3977069897149823839}
   m_Layer: 9
   m_Name: Bulb
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -219,20 +218,6 @@ MonoBehaviour:
   easetype: 4
   color: {r: 0.7490196, g: 0.07450981, b: 0, a: 1}
 --- !u!136 &1522945568
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 687830072}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: -0.0000076293945}
---- !u!136 &3977069897149823839
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -846,7 +831,7 @@ GameObject:
   - component: {fileID: 954948945}
   m_Layer: 9
   m_Name: Cylinder.002
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1098,6 +1083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d76661277b342a34f9253980a8e1838f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneLoader: {fileID: 0}
   thrustValue: 2000
   rotationValue: 80
   thrustSound: {fileID: 8300000, guid: 14dfb55c3170ace4abb16f87844669dd, type: 3}

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 540434565708455131}
   - component: {fileID: 852492885}
+  - component: {fileID: -3619918013112106828}
   m_Layer: 0
   m_Name: RotatingRocks_2
   m_TagString: Untagged
@@ -48,6 +49,73 @@ MonoBehaviour:
   spinTime: 1
   loopType: 2
   easetype: 1
+--- !u!114 &-3619918013112106828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3701569250830701578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd438dd108a0f284aa931a2da434f1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_RawSignal: {fileID: 11400000, guid: 97620a725708b164dabab7d034e8b922, type: 2}
+    m_AmplitudeGain: 3
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: -1
+          outSlope: 0.039008778
+          tangentMode: 1
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0.12092131
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: -0.57030225
+          outSlope: -1
+          tangentMode: 1
+          weightedMode: 0
+          inWeight: 0.114878654
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.1
+      m_DecayTime: 0.4
+      m_ScaleWithImpact: 0
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 1
+    m_DissipationDistance: 1000
+    m_PropagationSpeed: 343
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 512
+  m_IgnoreTag: NoPlayer
+  m_UseImpactDirection: 1
+  m_ScaleImpactWithMass: 0
+  m_ScaleImpactWithSpeed: 0
 --- !u!1001 &8525147973714521
 PrefabInstance:
   m_ObjectHideFlags: 0

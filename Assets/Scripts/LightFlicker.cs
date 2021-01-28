@@ -13,7 +13,7 @@ public class LightFlicker : MonoBehaviour
     void Start()
     {
         Material material = GetComponent<Renderer>().material;
-        material.DOColor(color * 10f, 1f).SetLoops(-1, loopType).SetEase(easetype).SetRelative();
+        material.DOColor(color * 15f, 1f).SetLoops(-1, loopType).SetEase(easetype).SetRelative();
     }
 
     // Update is called once per frame

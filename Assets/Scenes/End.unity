@@ -188,6 +188,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 7230125686371129304, guid: e20e1ef9a5b3bd1408567d67805ff861,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e20e1ef9a5b3bd1408567d67805ff861, type: 3}
 --- !u!1 &916307968
@@ -626,7 +631,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.047058824, g: 0.05490196, b: 0.21176471, a: 0}
+  m_BackGroundColor: {r: 0.031149866, g: 0.038651273, b: 0.18867922, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

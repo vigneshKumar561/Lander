@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
@@ -14,6 +12,7 @@ public class Player : MonoBehaviour
 
     Rigidbody rb;
     AudioSource audioSource;
+    [SerializeField] SceneLoader sceneLoader;
     [SerializeField] float thrustValue = 100f;
     [SerializeField] float rotationValue = 100f;
     [SerializeField] AudioClip thrustSound;
@@ -113,7 +112,7 @@ public class Player : MonoBehaviour
 
         if (!audioSource.isPlaying)
         {
-            audioSource.PlayOneShot(thrustSound, 0.5f);
+            audioSource.PlayOneShot(thrustSound, 0.3f);
         }
         if(!thrustParticle.isPlaying)
         {
@@ -148,7 +147,8 @@ public class Player : MonoBehaviour
     {
         state = State.Transcending;
         audioSource.Stop();
-        audioSource.PlayOneShot(winSound, 2f);
+        thrustParticle.Stop();
+        audioSource.PlayOneShot(winSound, 1.6f);
         successParticle.Play();
         Invoke("LoadNextScene", 1f);
     }
@@ -160,8 +160,8 @@ public class Player : MonoBehaviour
         ProcessCamera();
         audioSource.Stop();
         thrustParticle.Stop();
-        audioSource.PlayOneShot(deathSound, .6f);
-        
+        audioSource.PlayOneShot(deathSound, .4f);
+        Invoke("DisableShake", .5f);
         Disassemble();
         Invoke("LoadFirstScene", 2f);
     }
@@ -170,6 +170,12 @@ public class Player : MonoBehaviour
     {
         //GetComponent<CinemachineImpulseSource>().GenerateImpulse();
         rb.constraints = RigidbodyConstraints.FreezeAll;
+            
+    }
+
+    private void DisableShake()
+    {
+        cinemachineVirtualCamera.GetComponent<CinemachineImpulseListener>().enabled = false;
     }
 
     private void Disassemble()
@@ -177,19 +183,18 @@ public class Player : MonoBehaviour
         foreach(Transform child in this.transform)
         {
             Rigidbody crb =  child.gameObject.AddComponent<Rigidbody>();
-            crb.useGravity = false;                                  
+            crb.useGravity = false;            
         }
     }
 
     private void LoadFirstScene()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     private void LoadNextScene()
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex + 1);
+        sceneLoader.LoadNextScene();
     }
 
 }

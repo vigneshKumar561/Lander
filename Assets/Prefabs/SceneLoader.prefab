@@ -43,3 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6b9f1ce8705a334e86f468455e4dad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  button: {fileID: 0}
+  playSprite: {fileID: 21300000, guid: 8c07c46010f652849bf1201afb3870b7, type: 3}
+  pauseSprite: {fileID: 21300000, guid: 5ac8512ec3e1acf48acc12ee314766ac, type: 3}
